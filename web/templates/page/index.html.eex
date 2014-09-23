@@ -1,0 +1,57 @@
+<div class="jumbotron">
+  <h2>Duper!</h2>
+  <p class="lead">
+    Currently found <%= @duplicate_count %> duplicates.
+  </p>
+  <p class="text-muted">
+    <small>(Master folder: <%= @master_folder %>)</small>
+  </p>
+</div>
+
+<%= flash_for(@flash) %>
+
+<section class="row">
+  <div class="col-md-6">
+    <h4>Search for Duplicates</h4>
+    <form method="post">
+      <table>
+        <tr>
+          <th>Folder:</th>
+          <td><input name="folder"><%= @folder %></input></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><input type="submit"/></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Already Added</h4>
+    <ul>
+      <%= for item <- @batches do %>
+        <li><a href="<%= batch_rerun_path(:batch_rerun, item.id) %>">[rerun]</a>
+            <%= item.base_folder %> (<%= Batch.signature_count(item, @repo) %>)</li>
+      <% end %>
+    </ul>
+  </div>
+</section>
+
+<section class="row">
+  <header class="page-header">
+    <h4>First 10 Duplicates</h4>
+    <ul class="dup-list">
+      <%= for signatures <- @duplicates do %>
+        <li>
+          <ul class="dups">
+            <%= for signature <- signatures do %>
+                <li><%= image_link_to(signature.path) %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </header>
+</section>
+

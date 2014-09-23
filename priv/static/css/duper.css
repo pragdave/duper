@@ -1,0 +1,77 @@
+
+ul.dup-list, ul.dups {
+    list-style: none;
+}
+
+ul.dups {
+    clear: both;
+    margin-top: 1em;
+    border-top: 2px solid #ccf;
+    padding-top: 1em;
+}
+
+ul.dups li {
+    display: inline-block;
+    float:   left;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+
+ul.dups li img {
+    width: 240px;
+    box-shadow: 2px 2px 6px 2px #224;
+}
+
+ul.dups li figure {
+    position: relative;
+    vertical-align: bottom;
+}
+
+ul.dups li figure figcaption {
+    font-size: 70%;
+    font-style: italic;
+    margin-top: 0.5em;
+}
+
+
+/* Put the [i] on each image to get exif info */
+
+.dup button {
+   position: absolute;
+   bottom: 1.3em;
+   z-index: 3;
+   display: inline-block;
+   width: 1.5em;
+   height: 1.5em;
+   line-height: 1.2em;
+   border-radius: 50%;
+   border-color:  #aad;
+   color: white;
+   background: #337;
+   font-size: 150%;
+   font-style: italic;
+   font-family: serif;
+}
+
+.dup button.info {
+   right:  0.5em;
+   z-index: 3;
+   content: "i";
+}
+
+.dup button.zoom {
+   right:  2.5em;
+   z-index: 3;
+   content: "+";
+}
+
+.dup button:hover {
+    color: #aad;
+    border-color: #ddf;
+}
+
+.dup button:focus {
+    outline: 0;
+}
+
